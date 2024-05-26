@@ -33,7 +33,7 @@ The project follows a clean and modular architecture, using Bloc (Business Logic
 2. Navigate to the project directory:
 
     ```bash
-    cd tractian-challenge
+    cd tractian_challenge
     ```
 
 3. Install Flutter dependencies:
