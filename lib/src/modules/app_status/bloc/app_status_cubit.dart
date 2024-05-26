@@ -10,7 +10,7 @@ class AppStatusCubit extends Cubit<AppStatusState> {
 
   void init() {
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Modular.to.navigate(routeHome);
+      Modular.to.navigate(routeCompany);
     });
   }
 }

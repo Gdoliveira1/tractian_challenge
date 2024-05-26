@@ -11,14 +11,14 @@ import "package:tractian_challenge/src/modules/asset/bloc/asset_cubit.dart";
 import "package:tractian_challenge/src/modules/asset/bloc/asset_state.dart";
 import "package:tractian_challenge/src/shared/custom_message_info.dart";
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class CompanyView extends StatefulWidget {
+  const CompanyView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<CompanyView> createState() => _CompanyViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _CompanyViewState extends State<CompanyView> {
   @override
   void initState() {
     unawaited(context.read<AssetCubit>().loadCompanies());
@@ -71,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
                         ],
                       )),
                   onTap: () {
-                    Modular.to.navigate(routeAssets,
+                    Modular.to.navigate(routeAsset,
                         arguments: state.companies[index].id);
                   },
                 );

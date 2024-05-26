@@ -1,16 +1,16 @@
 import "package:flutter_modular/flutter_modular.dart";
 import "package:tractian_challenge/src/core/repositories/api_repository.dart";
 import "package:tractian_challenge/src/core/service/api_service.dart";
-import "package:tractian_challenge/src/modules/asset/asset_page.dart";
 import "package:tractian_challenge/src/modules/asset/bloc/asset_cubit.dart";
-import "package:tractian_challenge/src/modules/asset/home/home_page.dart";
+import "package:tractian_challenge/src/modules/asset/company/company_page.dart";
+import "package:tractian_challenge/src/modules/asset/main/asset_page.dart";
 
-const String routeHome = "/app/home";
-const String routeAssets = "/app/assets";
+const String routeCompany = "/app/company";
+const String routeAsset = "/app/asset";
 
 class AppModule extends Module {
-  final String _home = "/home";
-  final String _assets = "/assets";
+  final String _company = "/company";
+  final String _asset = "/asset";
 
   @override
   void binds(i) {
@@ -21,7 +21,7 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.child(_home, child: (_) => const HomePage());
-    r.child(_assets, child: (_) => AssetPage(companyId: r.args.data));
+    r.child(_company, child: (_) => const CompanyPage());
+    r.child(_asset, child: (_) => AssetPage(companyId: r.args.data));
   }
 }
