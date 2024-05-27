@@ -1,8 +1,6 @@
 import "package:equatable/equatable.dart";
-import "package:tractian_challenge/src/domain/models/asset_model.dart";
 import "package:tractian_challenge/src/domain/models/asset_tree_node_model.dart";
 import "package:tractian_challenge/src/domain/models/company_model.dart";
-import "package:tractian_challenge/src/domain/models/location_model.dart";
 
 /// Base class for all asset states.
 abstract class AssetState extends Equatable {
@@ -27,21 +25,6 @@ class CompaniesLoaded extends AssetState {
 
   @override
   String toString() => "CompaniesLoaded { companies: $companies }";
-}
-
-/// State when assets and locations are loaded successfully.
-class AssetsAndLocationsLoaded extends AssetState {
-  final List<AssetModel> assets;
-  final List<LocationModel> locations;
-
-  AssetsAndLocationsLoaded(this.assets, this.locations);
-
-  @override
-  List<Object?> get props => [assets, locations];
-
-  @override
-  String toString() =>
-      "AssetsAndLocationsLoaded { assets: $assets, locations: $locations }";
 }
 
 /// State when the asset tree is built and loaded successfully.
