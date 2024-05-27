@@ -26,26 +26,19 @@ class _AssetViewState extends State<AssetView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.whiteSmoke,
-      appBar: AppBar(
         backgroundColor: AppColors.whiteSmoke,
-        surfaceTintColor: Colors.transparent,
-        title: const Text("Assets"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Modular.to.navigate(routeCompany);
-          },
+        appBar: AppBar(
+          backgroundColor: AppColors.whiteSmoke,
+          surfaceTintColor: Colors.transparent,
+          title: const Text("Assets"),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Modular.to.navigate(routeCompany);
+            },
+          ),
         ),
-      ),
-      body: BlocBuilder<AssetCubit, AssetState>(builder: (context, state) {
-        if (state is AssetTreeLoaded) {
-          if (state.assetTree.isEmpty) {
-            return const CustomMessageInfo(
-                message: "No assets found for the selected filters");
-          }
-        }
-        return Column(
+        body: Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -103,14 +96,14 @@ class _AssetViewState extends State<AssetView> {
                   } else if (state is AssetError) {
                     return Center(child: Text(state.message));
                   } else {
-                    return const Center(child: Text("No data available"));
+                    return const CustomMessageInfo(
+                      message: "No assets found",
+                    );
                   }
                 },
               ),
             ),
           ],
-        );
-      }),
-    );
+        ));
   }
 }
